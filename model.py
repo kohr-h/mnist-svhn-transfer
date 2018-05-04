@@ -152,7 +152,7 @@ class D1(nn.Module):
                        k_size=4, stride=1, pad=0, bn=False)
 
     def forward(self, x):
-        out = x.reshape((-1, 1, 28, 28))
+        out = x.reshape((-1, 1, 32, 32))  # resized from 28x28
         out = F.leaky_relu(self.conv1(out), 0.05)  # (?, 64, 16, 16)
         out = F.leaky_relu(self.conv2(out), 0.05)  # (?, 128, 8, 8)
         out = F.leaky_relu(self.conv3(out), 0.05)  # (?, 256, 4, 4)

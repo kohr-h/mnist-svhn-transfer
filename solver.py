@@ -221,13 +221,13 @@ class Solver(object):
                 merged = self.merge_images(mnist, fake_svhn)
                 fmt = 'sample-{{:0{}}}-m-s.png'.format(digits)
                 path = os.path.join(self.sample_path, fmt.format(step + 1))
-                imageio.imsave(path, merged)
+                imageio.imsave(path, merged.astype('uint8'))
                 print('saved {}'.format(path))
 
                 merged = self.merge_images(svhn, fake_mnist)
                 fmt = 'sample-{{:0{}}}-s-m.png'.format(digits)
                 path = os.path.join(self.sample_path, fmt.format(step + 1))
-                imageio.imsave(path, merged)
+                imageio.imsave(path, merged.astype('uint8'))
                 print('saved {}'.format(path))
 
             if (step + 1) % 5000 == 0:
